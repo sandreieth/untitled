@@ -3,8 +3,9 @@
 
 #include <stdbool.h>
 
-#include "log.h"
+#define LOG_USE_COLOR
 #define LOG_H_IMPLEMENTATION
+#include "log.h"
 
 typedef struct {
   int something;
@@ -313,6 +314,8 @@ static inline void mouse_scrolled_event_init(MouseScrolledEvent* ev, float x_off
   ev->y_offset = y_offset;
 }
 
+
+
 #endif /* UNTITLED_H */
 
 #ifndef UNTITLED_H_IMPLEMENTATION
@@ -326,7 +329,7 @@ void run_app(App *app)
 int main(int argc, const char **argv)
 {
   log_set_level(LOG_TRACE);
-  log_trace("Initialised logging!");
+  log_error("Initialised logging!");
   
   App app = {0};
   run_app(&app);
